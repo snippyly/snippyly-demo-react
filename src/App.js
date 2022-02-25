@@ -28,7 +28,7 @@ function App() {
   return (
     <>
       <SnippylyContext.Provider value={{ snippyly }}>
-        {/* <snippyly-presence></snippyly-presence> */}
+        <snippyly-presence></snippyly-presence>
         <Presence />
         <Home />
         <snippyly-cursor></snippyly-cursor>
