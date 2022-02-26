@@ -1,5 +1,9 @@
 @import url("https://website462224.nicepage.io/nicepage.css");
 
+.u-align-items-center {
+    align-items: center;
+}
+
 .u-section-2 .u-sheet-1 {
     min-height: 987px;
 }

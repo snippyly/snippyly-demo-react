@@ -1,7 +1,7 @@
 import './App.css';
 import { Snippyly } from '@snippyly/elements';
 import { useEffect, useState } from 'react';
-import { getUser } from './uesrs';
+import { Users } from './users';
 import Home from './Home/Home';
 import { SnippylyContext } from './context/SnippylyContext';
 import Presence from './Presence/Presence';
@@ -9,10 +9,21 @@ import Presence from './Presence/Presence';
 function App() {
 
   const [snippyly, setSnippyly] = useState();
+  const [selectedUser, setSelectedUser] = useState();
+  const users = Users;
 
   useEffect(() => {
-    initSnippyly();
+    if (localStorage.getItem('user')) {
+      setSelectedUser(JSON.parse(localStorage.getItem('user')));
+      initSnippyly();
+    }
   }, [])
+
+  useEffect(() => {
+    if(selectedUser) {
+      signIn();
+    }
+  }, [selectedUser])
 
   const initSnippyly = async () => {
     const snippyly = await Snippyly.init({
@@ -20,9 +31,19 @@ function App() {
       featureAllowList: [], // To allow specific features only
       // userIdAllowList: ['abcd'], // To allow specific users only
       urlAllowList: [], // To allow snippyly in specific screens only
-      user: getUser() // Pass user with unique userId
+      user: selectedUser // Pass user with unique userId
     });
     setSnippyly(snippyly);
+  }
+
+  const signIn = (user) => {
+    localStorage.setItem('user', JSON.stringify(selectedUser));
+    initSnippyly();
+  }
+
+  const signOut = () => {
+    localStorage.removeItem('user');
+    window.location.reload();
   }
 
   return (
@@ -30,9 +51,28 @@ function App() {
       <SnippylyContext.Provider value={{ snippyly }}>
         <snippyly-presence></snippyly-presence>
         <Presence />
-        <Home />
+        <Home>
+          {
+            selectedUser ?
+              <div>
+                <span>Hi, {selectedUser?.name}</span>
+                <button className='custom-btn' onClick={() => signOut()}>Sign Out</button>
+              </div>
+              :
+              <div>
+                <span>Sign In with:</span>
+                {
+                  users.map((user) => {
+                    return (
+                      <button key={user.userId} className='custom-btn' onClick={() => setSelectedUser(user)}>{user?.name}</button>
+                    )
+                  })
+                }
+              </div>
+          }
+        </Home >
         <snippyly-cursor></snippyly-cursor>
-      </SnippylyContext.Provider>
+      </SnippylyContext.Provider >
     </>
   );
 }

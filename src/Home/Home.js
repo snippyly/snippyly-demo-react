@@ -1,79 +1,23 @@
 import React from 'react';
 import './Home.css';
 
-function Home() {
+function Home({ children }) {
     return (
         <>
             <header className="u-clearfix u-header u-palette-5-base u-header" id="sec-bbeb">
-                <div className="u-clearfix u-sheet u-sheet-1">
-                    <nav className="u-align-left u-menu u-menu-dropdown u-offcanvas u-menu-1 u-enable-responsive"
-                        data-responsive-from="XL">
-                        <div className="menu-collapse" style={{ fontSize: "1rem" }}>
-                            <a className="u-button-style u-nav-link" href="/" style={{ padding: '4px 0px', fontSize: 'calc(1em + 8px)' }}>
-                                {/* <svg className="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 302 302" >
-                  <use xlinkHref="#svg-8a8f"></use>
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1"
-                  id="svg-8a8f" x="0px" y="0px" viewBox="0 0 302 302"
-                  style={{ enableBackground: "new 0 0 302 302" }} xmlSpace="preserve" className="u-svg-content">
-                  <g>
-                    <rect y="36" width="302" height="30"></rect>
-                    <rect y="236" width="302" height="30"></rect>
-                    <rect y="136" width="302" height="30"></rect>
-                  </g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                </svg> */}
-                            </a>
+                <div className="u-clearfix u-sheet u-sheet-1 u-layout-row u-align-items-center">
+                    <div className='u-layout-row'>
+                        <a href="https://nicepage.com" style={{ marginRight: 'auto' }} data-image-width="150" data-image-height="75">
+                            <img alt=''
+                                src="https://images01.nicepage.com/thumbs/c461c07a441a5d220e8feb1a/ad299e1f7fb2559eabe1f2eb/067dc7e2-e55b-a3dc-aeac-91fdaae0aee9_150.png"
+                                className="u-logo-image u-logo-image-1" data-image-width="63" />
+                        </a>
+                        <div className='u-align-right'>
+                            {children}
                         </div>
-                        <div className="u-custom-menu u-nav-container">
-                            <ul className="u-nav u-spacing-2 u-unstyled u-nav-1">
-                                <li className="u-nav-item"><a
-                                    className="u-active-grey-5 u-button-style u-hover-grey-10 u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90 active"
-                                    href="/Contact.html" data-page-id="462226" style={{ padding: "10px 20px" }}>Contact</a>
-                                </li>
-                                <li className="u-nav-item"><a
-                                    className="u-active-grey-5 u-button-style u-hover-grey-10 u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90"
-                                    href="/Page-3.html" data-page-id="494830" style={{ padding: "10px 20px" }}>Page 3</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="u-custom-menu u-nav-container-collapse">
-                            <div
-                                className="u-align-center u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
-                                <div className="u-sidenav-overflow">
-                                    <div className="u-menu-close"></div>
-                                    <ul className="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
-                                        <li className="u-nav-item"><a className="u-button-style u-nav-link active" href="/Contact.html"
-                                            data-page-id="462226" style={{ padding: "10px 20px" }}>Contact</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="u-black u-menu-overlay u-opacity u-opacity-70"></div>
-                        </div>
-                    </nav>
-                    <div className="u-social-icons u-spacing-10 u-social-icons-1"></div>
-                    <a href="https://nicepage.com" className="u-image u-logo u-image-1" data-image-width="150"
-                        data-image-height="75">
-                        <img alt="" src="https://images01.nicepage.com/thumbs/c461c07a441a5d220e8feb1a/ad299e1f7fb2559eabe1f2eb/067dc7e2-e55b-a3dc-aeac-91fdaae0aee9_150.png"
-                            className="u-logo-image u-logo-image-1" data-image-width="63" />
-                    </a>
+                    </div>
                 </div>
-            </header >
+            </header>
 
             <section className="u-align-center u-clearfix u-section-2" id="sec-c72f">
                 <div className="u-clearfix u-sheet u-valign-middle u-sheet-1">
