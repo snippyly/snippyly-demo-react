@@ -1,5 +1,5 @@
 import './App.css';
-import { Snippyly } from '@snippyly/elements';
+import { Snippyly } from '@snippyly/sdk';
 import { useEffect, useState } from 'react';
 import { Users } from './users';
 import Home from './Home/Home';
