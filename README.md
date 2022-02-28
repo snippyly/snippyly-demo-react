@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Run React Project
 
 In the project directory, you can run:
 
@@ -14,57 +14,74 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `yarn test`
+Default configurations are provided, so no need to make any changes to run the demo project.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Go to `App.js` file:
 
-### `yarn build`
+```js
+const snippyly = await Snippyly.init({
+      apiKey: "TA66fUfxZVtGBqGxSTCz", // Add your Api Key here
+      featureAllowList: [], // To allow specific features only
+      // userIdAllowList: ['abcd'], // To allow specific users only
+      urlAllowList: [], // To allow snippyly in specific screens only
+      user: selectedUser // Pass user with unique userId
+    });
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Replace apiKey with your apiKey and re-run the code to make it work in your website.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+NOTE: Before implementing Snippyly into your website code, you will have to contact our team to get your apiKey and will have to provide list of domains to whitelist. Snippyly will only work in whitelisted domains provided by a client.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Presence feature
 
-### `yarn eject`
+There are 2 ways to implement presence feature.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Use default presence feature provided in Snippyly:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```html
+<snippyly-presence></snippyly-presence>
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Add this custom html tag at root level to make default presence feature work.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Get presence data through Snippyly and implement your own custom UI on top of that.
 
-## Learn More
+Create react component called `Presence.js`, watch on changes in `SnippylyContext`. Once Snippyly is available, call `getOnlineUsers()` to get users data.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```js
+const getOnlineUsers = () => {
+        const presenceElement = snippyly.getPresenceElement();
+        presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
+            console.log('users', users);
+        });
+    }
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+As provided in above code, user can get presence element and subscribe to `getOnlineUsersOnCurrentDocument()` method to receive updates. Result data contains list of user currently available in that document page.
 
-### Code Splitting
+## Cursor feature
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+There are 2 ways to implement cursor feature.
 
-### Analyzing the Bundle Size
+1. Use default cursor feature provided in Snippyly:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```html
+<snippyly-cursor></snippyly-cursor>
+```
 
-### Making a Progressive Web App
+Add this custom html tag at root level to make default cursor feature work.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+2. Get presence data through Snippyly and implement your own custom UI on top of that.
 
-### Advanced Configuration
+Similar to presence component, create react component called `Cursor.js`, watch on changes in `SnippylyContext`. Once Snippyly is available, call `getUserCursors()` to get users data.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```js
+getUserCursors(): void {
+    const cursorElement = snippyly.getCursorElement();
+    cursorElement.getLiveCursorsOnCurrentDocument().subscribe((cursors) => {
+      console.log('cursors', cursors);
+    });
+  }
+```
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+As provided in above code, user can get cursor element and subscribe to `getLiveCursorsOnCurrentDocument()` method to receive updates. Result data contains list of cursors currently online users in that document page.
