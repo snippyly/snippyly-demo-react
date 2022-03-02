@@ -20,7 +20,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    if(selectedUser) {
+    if (selectedUser) {
       signIn();
     }
   }, [selectedUser])
@@ -49,29 +49,32 @@ function App() {
   return (
     <>
       <SnippylyContext.Provider value={{ snippyly }}>
-        <snippyly-presence></snippyly-presence>
-        <Presence />
-        <Home>
-          {
-            selectedUser ?
-              <div>
-                <span>Hi, {selectedUser?.name}</span>
-                <button className='custom-btn' onClick={() => signOut()}>Sign Out</button>
-              </div>
-              :
-              <div>
-                <span>Sign In with:</span>
-                {
-                  users.map((user) => {
-                    return (
-                      <button key={user.userId} className='custom-btn' onClick={() => setSelectedUser(user)}>{user?.name}</button>
-                    )
-                  })
-                }
-              </div>
-          }
-        </Home >
-        <snippyly-cursor></snippyly-cursor>
+        <div>
+          <div className='header'>
+            <snippyly-presence></snippyly-presence>
+            <snippyly-cursor></snippyly-cursor>
+            <div>
+              {
+                selectedUser ?
+                  <div>
+                    <span>Hi, {selectedUser?.name}</span>
+                    <button className='custom-btn' onClick={() => signOut()}>Sign Out</button>
+                  </div>
+                  :
+                  <div>
+                    <span>Sign In with:</span>
+                    {
+                      users.map((user) => {
+                        return (
+                          <button key={user.userId} className='custom-btn' onClick={() => setSelectedUser(user)}>{user?.name}</button>
+                        )
+                      })
+                    }
+                  </div>
+              }
+            </div>
+          </div>
+        </div>
       </SnippylyContext.Provider >
     </>
   );
