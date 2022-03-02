@@ -15,7 +15,6 @@ function App() {
   useEffect(() => {
     if (localStorage.getItem('user')) {
       setSelectedUser(JSON.parse(localStorage.getItem('user')));
-      initSnippyly();
     }
   }, [])
 
