@@ -1,10 +1,8 @@
 import './App.css';
-import { Snippyly } from '@snippyly/sdk';
 import { useEffect, useState } from 'react';
 import { Users } from './users';
-import Home from './Home/Home';
 import { SnippylyContext } from './context/SnippylyContext';
-import Presence from './Presence/Presence';
+import { Snippyly } from '@snippyly/sdk';
 
 function App() {
 
@@ -13,31 +11,37 @@ function App() {
   const users = Users;
 
   useEffect(() => {
+    initSnippyly();
     if (localStorage.getItem('user')) {
       setSelectedUser(JSON.parse(localStorage.getItem('user')));
     }
   }, [])
 
   useEffect(() => {
-    if (selectedUser) {
+    if (selectedUser && snippyly) {
       signIn();
     }
-  }, [selectedUser])
+  }, [selectedUser, snippyly])
 
   const initSnippyly = async () => {
-    const snippyly = await Snippyly.init({
-      apiKey: "TA66fUfxZVtGBqGxSTCz", // Add your Api Key here
+    const snippyly = await Snippyly.init('TA66fUfxZVtGBqGxSTCz');
+    console.log('snippyly', snippyly)
+    setSnippyly(snippyly);
+  }
+
+  const identifyUser = () => {
+    snippyly.identify({
+      // apiKey: "TA66fUfxZVtGBqGxSTCz", // Add your Api Key here
       featureAllowList: [], // To allow specific features only
       // userIdAllowList: ['abcd'], // To allow specific users only
       urlAllowList: [], // To allow snippyly in specific screens only
       user: selectedUser // Pass user with unique userId
-    });
-    setSnippyly(snippyly);
+    })
   }
 
   const signIn = (user) => {
     localStorage.setItem('user', JSON.stringify(selectedUser));
-    initSnippyly();
+    identifyUser();
   }
 
   const signOut = () => {
