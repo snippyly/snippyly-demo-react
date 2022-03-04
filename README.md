@@ -1,3 +1,5 @@
+![Snippyly](https://snippyly.com/assets/logo/logo_colored_black.svg)
+
 # Getting started
 **This demo has two features:**
 1. **Presence:** Who is online on this page.
