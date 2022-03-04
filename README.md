@@ -6,7 +6,9 @@
 1. **Presence:** Who is online on this page.
 2. **Live Cursors:** Where are the online users on the page. It shows their live cursor position.
 
-# Run example locally
+# Run sample locally
+
+
 
 
 # Live demo
