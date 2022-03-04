@@ -1,4 +1,4 @@
-<img src="https://snippyly.com/assets/logo/logo_colored_black.svg" width="100">
+<img src="https://snippyly.com/assets/logo/logo_colored_black.svg" width="250">
 
 
 # Getting started
