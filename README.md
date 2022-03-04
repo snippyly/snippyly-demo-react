@@ -1,5 +1,4 @@
-![Snippyly](https://snippyly.com/assets/logo/logo_colored_black.svg)
-<img src="https://github.com/favicon.ico" width="48">
+<img src="https://snippyly.com/assets/logo/logo_colored_black.svg" width="100">
 
 
 # Getting started
