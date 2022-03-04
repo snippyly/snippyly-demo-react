@@ -15,7 +15,7 @@
 
 **Steps:**
 1. Open the above link in two tabs: tab 1: a regular tab; tab 2: an incognito tab (side by side)
-2. On tab 1: Sign in with one of the 3 users given
+2. On `**tab 1**`: Sign in with one of the 3 users given
 3. On tab 2: Sign in with a user different than the one in previous step
 
 **Note:**
