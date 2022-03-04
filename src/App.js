@@ -9,7 +9,7 @@ function App() {
   const [snippyly, setSnippyly] = useState(null);
 
   useEffect(() => {
-    initSnippyly();
+    initSnippyly(); 
   }, [])
 
   const initSnippyly = async () => {
