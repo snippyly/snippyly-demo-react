@@ -24,5 +24,7 @@
 
 
 # Documentation
-**Refer to the SDK documentation here:**
+
+### SDK documentation
 [https://sdk.snippyly.com/docs](https://sdk.snippyly.com/docs)
+
