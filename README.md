@@ -18,8 +18,8 @@
 
 **Steps:**
 1. Open the above link in two tabs, side by side: **`tab 1`**: a regular tab; **`tab 2`**: an incognito tab
-2. On **`tab 1`**: Sign in with one of the 3 users given
-3. On **`tab 2`**: Sign in with a user different than the one in previous step
+2. On **`tab 1`**: Sign in with one of the 3 users given. (e.g. James Smith)
+3. On **`tab 2`**: Sign in with a user different than the one in previous step. (e.g. Maria Garcia)
 
 **Note:**
 * Now you will start seeing Presence icons and Live cursors for each of the users.
