@@ -1,12 +1,12 @@
-## Getting started
+# Getting started
 **This demo has two features:**
 1. **Presence:** Who is online on this page.
 2. **Live Cursors:** Where are the online users on the page. It shows their live cursor position.
 
-## Run example locally
+# Run example locally
 
 
-## Live demo
+# Live demo
 
 ### Live demo link
 [https://snippyly-demo-vue.web.app](https://snippyly-demo-vue.web.app)
@@ -23,6 +23,6 @@
 * For the cursors to work each, you need to ensure that the tab is active. You can click on the page to ensure that its active.
 
 
-## Documentation
+# Documentation
 **Refer to the SDK documentation here:**
 [https://sdk.snippyly.com/docs](https://sdk.snippyly.com/docs)
