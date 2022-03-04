@@ -1,87 +1,28 @@
-# Getting Started with Create React App
+## Getting started
+**This demo has two features:**
+1. **Presence:** Who is online on this page.
+2. **Live Cursors:** Where are the online users on the page. It shows their live cursor position.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Run example locally
 
-## Run React Project
 
-In the project directory, you can run:
+## Live demo
 
-### `yarn start`
+### Live demo link
+[https://snippyly-demo-vue.web.app](https://snippyly-demo-vue.web.app)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Instructions to try the demo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Steps:**
+1. Open the above link in two tabs: tab 1: a regular tab; tab 2: an incognito tab (side by side)
+2. On tab 1: Sign in with one of the 3 users given
+3. On tab 2: Sign in with a user different than the one in previous step
 
-Default configurations are provided, so no need to make any changes to run the demo project.
+**Note:**
+* Now you will start seeing Presence icons and Live cursors for each of the users.
+* For the cursors to work each, you need to ensure that the tab is active. You can click on the page to ensure that its active.
 
-Go to `App.js` file:
 
-```js
-const snippyly = await Snippyly.init({
-      apiKey: "TA66fUfxZVtGBqGxSTCz", // Add your Api Key here
-      featureAllowList: [], // To allow specific features only
-      // userIdAllowList: ['abcd'], // To allow specific users only
-      urlAllowList: [], // To allow snippyly in specific screens only
-      user: selectedUser // Pass user with unique userId
-    });
-```
-
-Replace apiKey with your apiKey and re-run the code to make it work in your website.
-
-NOTE: Before implementing Snippyly into your website code, you will have to contact our team to get your apiKey and will have to provide list of domains to whitelist. Snippyly will only work in whitelisted domains provided by a client.
-
-## Presence feature
-
-There are 2 ways to implement presence feature.
-
-1. Use default presence feature provided in Snippyly:
-
-```html
-<snippyly-presence></snippyly-presence>
-```
-
-Add this custom html tag at root level to make default presence feature work.
-
-2. Get presence data through Snippyly and implement your own custom UI on top of that.
-
-Create react component called `Presence.js`, watch on changes in `SnippylyContext`. Once Snippyly is available, call `getOnlineUsers()` to get users data.
-
-```js
-const getOnlineUsers = () => {
-        const presenceElement = snippyly.getPresenceElement();
-        presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
-            console.log('users', users);
-        });
-    }
-```
-
-As provided in above code, user can get presence element and subscribe to `getOnlineUsersOnCurrentDocument()` method to receive updates. Result data contains list of user currently available in that document page.
-
-## Cursor feature
-
-There are 2 ways to implement cursor feature.
-
-1. Use default cursor feature provided in Snippyly:
-
-```html
-<snippyly-cursor></snippyly-cursor>
-```
-
-Add this custom html tag at root level to make default cursor feature work.
-
-2. Get presence data through Snippyly and implement your own custom UI on top of that.
-
-Similar to presence component, create react component called `Cursor.js`, watch on changes in `SnippylyContext`. Once Snippyly is available, call `getUserCursors()` to get users data.
-
-```js
-getUserCursors(): void {
-    const cursorElement = snippyly.getCursorElement();
-    cursorElement.getLiveCursorsOnCurrentDocument().subscribe((cursors) => {
-      console.log('cursors', cursors);
-    });
-  }
-```
-
-As provided in above code, user can get cursor element and subscribe to `getLiveCursorsOnCurrentDocument()` method to receive updates. Result data contains list of cursors currently online users in that document page.
+## Documentation
+**Refer to the SDK documentation here:**
+[https://sdk.snippyly.com/docs](https://sdk.snippyly.com/docs)
