@@ -14,9 +14,9 @@
 ### Instructions to try the demo
 
 **Steps:**
-1. Open the above link in two tabs: tab 1: a regular tab; tab 2: an incognito tab (side by side)
-2. On `**tab 1**`: Sign in with one of the 3 users given
-3. On tab 2: Sign in with a user different than the one in previous step
+1. Open the above link in two tabs, side by side: **`tab 1`**: a regular tab; **`tab 1`**: an incognito tab
+2. On **`tab 1`**: Sign in with one of the 3 users given
+3. On **`tab 2`**: Sign in with a user different than the one in previous step
 
 **Note:**
 * Now you will start seeing Presence icons and Live cursors for each of the users.
