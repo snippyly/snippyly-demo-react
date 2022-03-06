@@ -10,7 +10,7 @@
 
 Run `yarn start` command to run demo locally.
 
-If you want to implement Snippyly in react javascript app method then please follow below steps:
+Here are key pointers if you are implementing Snippyly SDK in your own React (JS) app:
 
 1. Add `SnippylyContext.js` file in `src/context` folder.
 2. Refer `App.js` code to load Snippyly and initialize it with your api key.
