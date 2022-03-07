@@ -14,7 +14,25 @@ If you want to implement Snippyly in react javascript app method then please fol
 
 1. Add `SnippylyContext.js` file in `src/context` folder.
 2. Refer `App.js` code to load Snippyly and initialize it with your api key.
-3. Refer `Toolbar.js` file to set user in Snippyly.
+   ```js
+   const snippyly = await Snippyly.init('YOUR_API_KEY_HERE', {
+      featureAllowList: [], // To allow specific features only
+      userIdAllowList: [], // To allow specific users only
+      urlAllowList: [], // To allow snippyly in specific screens only
+    }); 
+   ```
+3. Refer `Toolbar.js` file to set user in Snippyly. Call below function once logged in user data and snippyly object is available:
+   ```JS
+   const identifySnippyly = async () => {
+        if (snippyly) {
+            snippyly.identify(user).then((res) => {
+                // User login successful
+            }).catch((err) => {
+                // User login failure
+            });
+        }
+    }
+   ```
 4. If you want to show user cursors then add `<snippyly-cursor></snippyly-cursor>` in `App.js` file.
 5. If you want to show user presence then add `<snippyly-presence></snippyly-presence>`. In this demo, this tag is added in `Toolbar.js` component, but it can be added in any other component you want.
 

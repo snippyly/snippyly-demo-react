@@ -9,6 +9,7 @@ function Toolbar() {
     const { snippyly } = useSnippyly();
 
     useEffect(() => {
+        // If user is logged in then set it to selected user state
         if (localStorage.getItem('user')) {
             setSelectedUser(JSON.parse(localStorage.getItem('user')));
         }
@@ -16,30 +17,30 @@ function Toolbar() {
 
     useEffect(() => {
         if (selectedUser && snippyly) {
-            signIn();
+            identifySnippyly();
         }
     }, [selectedUser && snippyly])
 
     const identifySnippyly = async () => {
         if (snippyly) {
-            console.log('identifySnippyly')
-            await snippyly.identify({
-                featureAllowList: [], // To allow specific features only
-                // userIdAllowList: ['abcd'], // To allow specific users only
-                urlAllowList: [], // To allow snippyly in specific screens only
-                user: selectedUser // Pass user with unique userId
+            snippyly.identify(selectedUser).then((res) => {
+                // User login successful
+            }).catch((err) => {
+                // User login failure
             });
         }
-    }
-
-    const signIn = () => {
-        localStorage.setItem('user', JSON.stringify(selectedUser));
-        identifySnippyly();
     }
 
     const signOut = () => {
         localStorage.removeItem('user');
         window.location.reload();
+    }
+
+    const signIn = (user) => {
+        // Add custom logic here to login user
+        // Once user is available call identifySnippyly
+        localStorage.setItem('user', JSON.stringify(user));
+        setSelectedUser(user);
     }
 
     return (
@@ -58,7 +59,7 @@ function Toolbar() {
                             {
                                 users.map((user) => {
                                     return (
-                                        <button key={user.userId} className='custom-btn' onClick={() => setSelectedUser(user)}>{user?.name}</button>
+                                        <button key={user.userId} className='custom-btn' onClick={() => signIn(user)}>{user?.name}</button>
                                     )
                                 })
                             }
