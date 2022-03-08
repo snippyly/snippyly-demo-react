@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import { useSnippyly } from '../context/SnippylyContext';
+import { useSnippylyClient } from '../context/SnippylyContext';
 
 function Presence() {
 
     const [users, setUsers] = useState({});
 
-    const { snippyly } = useSnippyly();
+    const { client } = useSnippylyClient();
 
     useEffect(() => {
-        console.log('snippyly in presence', snippyly);
-        if (snippyly) {
+        console.log('snippyly in presence', client);
+        if (client) {
             getOnlineUsers();
         }
-    }, [snippyly]);
+    }, [client]);
 
     const getOnlineUsers = () => {
-        const presenceElement = snippyly.getPresenceElement();
+        const presenceElement = client.getPresenceElement();
         presenceElement.getOnlineUsersOnCurrentDocument().subscribe((users) => {
             console.log('users in react', users);
             setUsers(users);

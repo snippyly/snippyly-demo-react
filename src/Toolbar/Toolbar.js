@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { useSnippyly } from '../context/SnippylyContext';
+import { useSnippylyClient } from '../context/SnippylyContext';
 import { Users } from '../users';
 
 function Toolbar() {
     const [selectedUser, setSelectedUser] = useState(null);
     const users = Users;
 
-    const { snippyly } = useSnippyly();
+    const { client } = useSnippylyClient();
 
     useEffect(() => {
         // If user is logged in then set it to selected user state
@@ -16,14 +16,14 @@ function Toolbar() {
     }, [])
 
     useEffect(() => {
-        if (selectedUser && snippyly) {
+        if (selectedUser && client) {
             identifySnippyly();
         }
-    }, [selectedUser && snippyly])
+    }, [selectedUser && client])
 
     const identifySnippyly = async () => {
-        if (snippyly) {
-            snippyly.identify(selectedUser).then((res) => {
+        if (client) {
+            client.identify(selectedUser).then((res) => {
                 // User login successful
             }).catch((err) => {
                 // User login failure

@@ -6,25 +6,25 @@ import Toolbar from './Toolbar/Toolbar';
 
 function App() {
 
-  const [snippyly, setSnippyly] = useState(null);
+  const [client, setClient] = useState(null);
 
   useEffect(() => {
-    initSnippyly();
+    init();
   }, [])
 
-  const initSnippyly = async () => {
+  const init = async () => {
     const snippyly = await Snippyly.init('TA66fUfxZVtGBqGxSTCz', {
       featureAllowList: [], // To allow specific features only
       // userIdAllowList: ['abcd'], // To allow specific users only
       urlAllowList: [], // To allow snippyly in specific screens only
     }); // Add your Api Key here
     console.log('snippyly', snippyly);
-    setSnippyly(snippyly);
+    setClient(snippyly);
   }
 
   return (
     <>
-      <SnippylyContext.Provider value={{ snippyly }}>
+      <SnippylyContext.Provider value={{ client }}>
         <div>
           <snippyly-cursor></snippyly-cursor>
           <Toolbar />
