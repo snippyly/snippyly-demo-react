@@ -34,5 +34,5 @@ Run `yarn start` command to run demo locally.
 # Documentation
 
 ### SDK documentation
-[https://sdk.snippyly.com/docs](https://sdk.snippyly.com/docs)
+[https://sdk.snippyly.com/docs/react-js-docs](https://sdk.snippyly.com/docs/react-js-docs)
 
