@@ -7,6 +7,9 @@
       "hosting": {
         "default": [
           "snippyly-demo-react"
+        ],
+        "wdp": [
+          "snippyly-demo-react-wdp"
         ]
       }
     }
