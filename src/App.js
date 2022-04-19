@@ -4,6 +4,7 @@ import './App.css';
 import { SnippylyContext } from './context/SnippylyContext';
 import Tabs from './Tabs/Tabs';
 import Toolbar from './Toolbar/Toolbar';
+import "@snippyly/sdk/snippyly.css";
 
 function App() {
 
@@ -30,6 +31,11 @@ function App() {
       <SnippylyContext.Provider value={{ client }}>
         <div>
           <snippyly-cursor></snippyly-cursor>
+          <snippyly-comment-tool>
+            <div className='add-comment-btn'>
+              <img src='https://cdn-icons-png.flaticon.com/512/727/727570.png' alt='Add comment' />
+            </div>
+          </snippyly-comment-tool>
           <Toolbar onMenuSelect={(menu) => setSelectedMenu(menu)} />
           <Tabs selectedMenu={selectedMenu} />
         </div>
