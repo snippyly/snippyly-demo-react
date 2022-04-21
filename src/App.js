@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { SnippylyContext } from './context/SnippylyContext';
 import Toolbar from './Toolbar/Toolbar';
-import "@snippyly/sdk/snippyly.css";
 
 function App() {
 
