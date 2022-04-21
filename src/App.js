@@ -4,7 +4,6 @@ import './App.css';
 import { SnippylyContext } from './context/SnippylyContext';
 import Tabs from './Tabs/Tabs';
 import Toolbar from './Toolbar/Toolbar';
-import "@snippyly/sdk/snippyly.css";
 
 function App() {
 
