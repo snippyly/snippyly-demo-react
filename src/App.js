@@ -27,6 +27,8 @@ function App() {
     // To enable text comment feature
     const commentElement = client.getCommentElement();
     commentElement.enableTextComments(true);
+    // Set document id
+    client.setDocumentId(window.location.href);
   }
 
   return (
