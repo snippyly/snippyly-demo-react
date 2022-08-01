@@ -22,6 +22,10 @@ function App() {
       urlAllowList: [], // To allow snippyly in specific screens only
     }); // Add your Api Key here
     console.log('snippyly client', client);
+    // To enable text comment feature
+    const commentElement = client.getCommentElement();
+    commentElement.enableAttachment(true);
+
     setClient(client);
   }
 
