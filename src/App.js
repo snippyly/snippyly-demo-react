@@ -28,8 +28,23 @@ function App() {
     const commentElement = client.getCommentElement();
     commentElement.enableTextComments(true);
     commentElement.enableAttachment(true);
+    // To enable live selection feature
+    const selectionElement = client.getSelectionElement();
+    selectionElement.enableLiveSelection(true);
     // Set document id
-    client.setDocumentId(window.location.href);
+    client.setDocumentId(excludeSnippylyParamsFromUrl(window.location.href));
+  }
+
+  const excludeSnippylyParamsFromUrl = (url) => {
+    try {
+      const tempUrl = new URL(url);
+      ['review', 'sreviewId', 'snippyly-user', 'scommentId', 'stagId'].forEach((param) => {
+        tempUrl.searchParams.delete(param);
+      });
+      return tempUrl.href;
+    } catch (err) {
+      return url;
+    }
   }
 
   return (
