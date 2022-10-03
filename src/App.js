@@ -28,6 +28,7 @@ function App() {
     const commentElement = client.getCommentElement();
     commentElement.enableTextComments(true);
     commentElement.enableAttachment(true);
+    commentElement.showScreenSizeInfo(true);
     // To enable live selection feature
     const selectionElement = client.getSelectionElement();
     selectionElement.enableLiveSelection(true);
