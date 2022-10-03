@@ -25,7 +25,7 @@ function App() {
     // To enable text comment feature
     const commentElement = client.getCommentElement();
     commentElement.enableAttachment(true);
-
+    commentElement.showScreenSizeInfo(true);
     setClient(client);
   }
 
