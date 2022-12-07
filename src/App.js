@@ -1,46 +1,38 @@
-import { Snippyly } from '@snippyly/sdk';
-import { useEffect, useState } from 'react';
+import { SnippylyComments, SnippylyCommentsSidebar, SnippylyCommentTool, SnippylyCursor, SnippylyProvider } from '@snippyly/react';
+import { useState } from 'react';
 import './App.css';
-import { SnippylyContext } from './context/SnippylyContext';
 import Tabs from './Tabs/Tabs';
 import Toolbar from './Toolbar/Toolbar';
 
 function App() {
 
-  const [client, setClient] = useState(null);
-
   const [selectedMenu, setSelectedMenu] = useState();
 
-  useEffect(() => {
-    init();
-  }, [])
-
-  const init = async () => {
-    const client = await Snippyly.init('TA66fUfxZVtGBqGxSTCz', {
-      featureAllowList: [], // To allow specific features only
-      // userIdAllowList: ['abcd'], // To allow specific users only
-      urlAllowList: [], // To allow snippyly in specific screens only
-    }); // Add your Api Key here
-    console.log('snippyly client', client);
-    // To enable text comment feature
-    const commentElement = client.getCommentElement();
-    commentElement.enableAttachment(true);
-    commentElement.showScreenSizeInfo(true);
-    setClient(client);
+  const init = async (client) => {
+    if (client) {
+      // To enable text comment feature
+      const commentElement = client.getCommentElement();
+      commentElement.enableAttachment(true);
+      commentElement.showScreenSizeInfo(true);
+    }
   }
 
   return (
     <>
-      <SnippylyContext.Provider value={{ client }}>
+      <SnippylyProvider apiKey='TA66fUfxZVtGBqGxSTCz' config={{
+        featureAllowList: [], // To allow specific features only
+        // userIdAllowList: ['abcd'], // To allow specific users only
+        urlAllowList: [], // To allow snippyly in specific screens only
+      }} onClientLoad={(client) => init(client)}>
         <div>
-          <snippyly-cursor></snippyly-cursor>
-          <snippyly-comments></snippyly-comments>
-          <snippyly-comments-sidebar></snippyly-comments-sidebar>
-          <snippyly-comment-tool></snippyly-comment-tool>
+          <SnippylyCursor />
+          <SnippylyComments />
+          <SnippylyCommentsSidebar />
+          <SnippylyCommentTool />
           <Toolbar onMenuSelect={(menu) => setSelectedMenu(menu)} />
           <Tabs selectedMenu={selectedMenu} />
         </div>
-      </SnippylyContext.Provider >
+      </SnippylyProvider>
     </>
   );
 }
