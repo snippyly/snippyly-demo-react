@@ -1564,10 +1564,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@snippyly/react@^1.0.19":
-  version "1.0.19"
-  resolved "https://registry.yarnpkg.com/@snippyly/react/-/react-1.0.19.tgz#9aedc0f06f1397e9a8914ed78f7ca2b12b7abbe7"
-  integrity sha512-XY9HQ/p117/ESscxOUBrwiKEHosvFaRzLoDp5zWVyxj91eWIZ/tS5pkHWwgfiEsgLadI4RK58OPJ/HHxz53ZFg==
+"@snippyly/react@^1.0.21":
+  version "1.0.21"
+  resolved "https://registry.yarnpkg.com/@snippyly/react/-/react-1.0.21.tgz#26f9ad45b633015e69188b25a405c9bd419f71af"
+  integrity sha512-1EohISoftO7+Vlvko/Uv5+gSIc48UsLpStVgZjNpwlKJazixTMiZr6c2V8L6Sw7CEACQoihjUiTcsVX4lRHE9w==
 
 "@snippyly/sdk@^1.0.54":
   version "1.0.54"
