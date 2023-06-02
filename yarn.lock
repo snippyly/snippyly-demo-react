@@ -1557,11 +1557,6 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@snippyly/react@^1.0.26":
-  version "1.0.26"
-  resolved "https://registry.yarnpkg.com/@snippyly/react/-/react-1.0.26.tgz#82eb392016081d19123c2d49452fe5da80f7cc04"
-  integrity sha512-+yUpcaUMqeSJh7oVjvVT6isOSINqNGkUijvq4pDh7eL+njsa593FX2LvL40FoFlKzbNtIMA+oNX6pskx+7wVfQ==
-
 "@surma/rollup-plugin-off-main-thread@^2.2.3":
   version "2.2.3"
   resolved "https://registry.npmjs.org/@surma/rollup-plugin-off-main-thread/-/rollup-plugin-off-main-thread-2.2.3.tgz"
@@ -2141,6 +2136,11 @@
   dependencies:
     "@typescript-eslint/types" "5.12.1"
     eslint-visitor-keys "^3.0.0"
+
+"@veltdev/react@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@veltdev/react/-/react-1.0.2.tgz#7216ca63225d7461dc79729ec497327d5e25b86e"
+  integrity sha512-bML1Pa4toYGeH/h3ueign1Nx33nGG/sWt95FnLHB4he4ZTYu9zdNkDYzJbTCeK5nmIvGf40WWc+LycY32gkF1A==
 
 "@webassemblyjs/ast@1.11.1":
   version "1.11.1"

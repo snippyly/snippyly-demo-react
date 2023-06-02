@@ -1,14 +1,14 @@
-import { useSnippylyClient } from '@snippyly/react';
+import { useVeltClient } from '@veltdev/react';
 import React, { useEffect, useState } from 'react'
 
 function Presence() {
 
     const [users, setUsers] = useState({});
 
-    const { client } = useSnippylyClient();
+    const { client } = useVeltClient();
 
     useEffect(() => {
-        console.log('snippyly in presence', client);
+        console.log('velt in presence', client);
         if (client) {
             getOnlineUsers();
         }
