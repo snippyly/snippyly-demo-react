@@ -8,7 +8,7 @@ function Presence() {
     const { client } = useVeltClient();
 
     useEffect(() => {
-        console.log('snippyly in presence', client);
+        console.log('velt in presence', client);
         if (client) {
             getOnlineUsers();
         }
